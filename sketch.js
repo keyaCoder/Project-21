@@ -19,8 +19,9 @@ function setup() {
 
 function draw() {
   background(0, 0, 0);
-  if (wall.x - bullet.x < (bullet.width + wall.width / 2)) {
-    bullet.velocityX = 0;
+//  if (wall.x - bullet.x < (bullet.width + wall.width / 2)) {
+  if (isTouching(bullet, wall) || bullet.x > wall.x + wall.width / 2) {
+      bullet.velocityX = 0;
     bullet.x = wall.x - bullet.width/ 2 - wall.width/2;
 
     var damage = 0.5 * weight * speed * speed / (thickness * thickness * thickness);
